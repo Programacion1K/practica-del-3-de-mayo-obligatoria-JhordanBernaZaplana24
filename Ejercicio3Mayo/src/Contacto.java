@@ -1,13 +1,9 @@
 import java.util.Objects;
 
-public class Contacto {
-    private String nombre;
+public class Contacto implements Comparable<Contacto> {
+    private final String nombre;
     private String numeroTelefono;
 
-    public Contacto() {
-        this.nombre= nombre;
-        this.numeroTelefono= numeroTelefono;
-    }
     public Contacto(String nombre, String numeroTelefono) {
         this.nombre = nombre;
         this.numeroTelefono = numeroTelefono;
@@ -15,10 +11,6 @@ public class Contacto {
 
     public String getNombre() {
         return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getNumeroTelefono() {
@@ -42,6 +34,9 @@ public class Contacto {
     public int hashCode() {
         return Objects.hash(nombre, numeroTelefono);
     }
+    public String info(){
+        return nombre;
+    }
 
     @Override
     public String toString() {
@@ -49,5 +44,9 @@ public class Contacto {
                 "nombre='" + nombre + '\'' +
                 ", numeroTelefono='" + numeroTelefono + '\'' +
                 '}';
+    }
+    @Override
+    public int compareTo(Contacto o) {
+        return this.nombre.compareTo(o.nombre);
     }
 }
